@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1580442374555-3def8fb41738?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDE1fHxSQUlMV0FZU3xlbnwwfHx8fDE3MDY3NzgyMjR8MA&ixlib=rb-4.0.3&w=1500");
+    background-size:100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: rgba(217, 217, 217, 0.79);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Set a specific width for the form */
+    margin: auto; /* Center the form on the page */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: calc(100% - 16px); /* Calculate the width, accounting for padding */
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Add a border to the input fields */
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto; /* Center the button on the page */
+}
+
+/* Add some spacing between form elements */
+label, input, button {
+    margin-bottom: 12px;
+}
+
+/* Style radio buttons */
+input[type="radio"] {
+    margin-right: 5px;
+}
+input,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px; /* Adjusted margin-bottom */
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .phone-container {
+      display: flex;
+      align-items: center;
+      gap: 10px; /* Added gap for spacing between elements */
+    }
+
+    .phone-code {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .phone-number {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .success-message {
+      display: none;
+      text-align: center; /* Center align the text */
+      margin-top: 20px; /* Add some space between the button and the message */
+  }
+  
