@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost And Found</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-image: url('picture 11.jpg');">
+    <header>
+        <nav style="padding: 20px;">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Notifications</a></li>
+          </ul>
+          <button class="login-button">Profile</button>
+        </nav>
+      </header>
+    <h1>Report Lost Item</h1>
+    <h3>1. Select the category of your lost Item</h3>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Image</th>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('personal')">Personal Item</button>
+            </td>
+            <td>Description: Personal items such as keys, wallets, etc.</td>
+            <td><img src="https://cdn.thewirecutter.com/wp-content/uploads/2019/11/Personal_Items_for_Travel-lowres-48.jpg?auto=webp&quality=75&width=1024" alt="Luggage" width="200px"></td>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('clothing')">Clothing Or Accessories</button>
+            </td>
+            <td>Description: Clothing items or accessories such as jewelry, hats, etc.</td>
+            <td><img src="https://promova.com/content/accessory_79573b939f.png" alt="Accessories" width="200px"></td>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('electronic')">Electronic Devices</button>
+            </td>
+            <td>Description: Electronic devices such as phones, laptops, etc.</td>
+            <td><img src="https://7esl.com/wp-content/uploads/2020/12/electronic-devices.jpg" alt="Electronic Devices" width="100px"></td>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('luggage')">Luggage</button>
+            </td>
+            <td>Description: Bags, suitcases, or other luggage items.</td>
+            <td><img src="https://assets.teenvogue.com/photos/643de77798e830c20d9cbd0e/16:9/w_2560%2Cc_limit/GettyImages-1370841285.jpg" alt="Luggage" width="200px"></td>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('other')">Other</button>
+            </td>
+            <td>Description: Items that do not fit into any other category.</td>
+            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGI0rbJJ2FtuFjCv8DAmP_U00BUVzva535-Q&usqp=CAU" alt="Other Items" width="200px"></td>
+        </tr>
+    </table>
+
+    <div id="report-form" style="display: none;">
+        <h2>Report Details</h2>
+        <form>
+            <label for="item-description">Item Description:</label><br>
+            <input type="text" id="item-description" name="item-description"><br>
+            <label for="date">Date of Losing:</label><br>
+            <input type="date" id="date" name="date"><br>
+            <label for="time">Time of Losing:</label><br>
+            <input type="time" id="time" name="time"><br><br>
+            <input type="submit" value="Submit" onclick="submitReport(event)">
+        </form>
+    </div>
+
+    <script>
+        function showForm(category) {
+            // Show the form
+            document.getElementById('report-form').style.display = 'block';
+            alert("You have selected " + category + " item.");
+        }
+
+        function submitReport(event) {
+            event.preventDefault();
+            const itemDescription = document.getElementById('item-description').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const timeArray = time.split(":"); // Split the time into hours and minutes
+            const hours = timeArray[0];
+            const minutes = timeArray[1];
+            alert("Report Details:\nItem Description: " + itemDescription + "\nDate of Losing(DD/MM/YYYY): " + date + "\nTime of Losing in hours and miniutes: " + hours + ":" + minutes);
+        }
+    </script>
+</body>
+</html>
