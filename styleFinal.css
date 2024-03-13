@@ -1,14 +1,13 @@
 body {
-  background-image: url('picture 3.jpg'); /* Replace with your image path */
+  /*background-image: url('picture 3.jpg');*/ /* Replace with your image path */
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   background-attachment: fixed;
   height: 150vh;
   display: flex;
   flex-direction: column;
-
-
+  overflow-x:hidden;
 }
 main{
   display: flex;
@@ -17,29 +16,31 @@ main{
   align-items: center;
 
 }
-span.block-letters {
+.block-letters {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 5em; /* Adjust font size as needed */
-  text-transform: uppercase; /* Convert text to uppercase */
-  font-weight: bold; /* Make text bold */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964); /* Add text shadow */
-  text-align:center;
-  padding: 30px;
-  color: rgb(255, 84, 84);
-  text-decoration:wavy;
-  
+  color: white; /* Change color as needed */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Add text shadow */
+  z-index: 1; /* Ensure text appears above the image */
+  font-weight: bolder;
+}
+
+span.block-letters:hover {
+  color:rgba(144, 239, 254, 0.842); 
 }
 nav {
-  background-color: rgba(195, 190, 190, 0.541); 
+  background-color: rgba(144, 239, 254, 0.842);
   padding: 20px;
   width: 60%;
   border-radius: 30px;
   display: flex;
   justify-content: center; /* Align items with space in between */
   align-items: center; /* Center items vertically */
-  margin: 10px auto;
-}
-nav:hover{
-    background-color: rgba(214, 213, 213, 0.184);
+  margin: 10px auto; 
+
 }
 nav img {
   height: 40px; /* Adjust the height of the image */
@@ -59,13 +60,27 @@ nav ul li:last-child {
   margin-right: 10px;
 }
 nav ul li a {
-  text-decoration:wavy;
-  color: rgba(17, 16, 16, 0.911);
-  font-weight: bold;
-  font-size:medium;
+  text-decoration: none;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  bottom: -5px;
+  left: 50%;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+  left: 0;
 }
 nav ul li a:hover {
-  color: red;
+  color: rgb(241, 140, 174);
 }
 .login-button {
   padding: 20px 30px;
@@ -79,7 +94,7 @@ nav ul li a:hover {
 .login-button:hover {
   background-color: rgba(236, 16, 16, 0.896);
   color: white; 
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.155); 
+  /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.155); */
 }
 .container {
   display: flex;
@@ -88,30 +103,29 @@ nav ul li a:hover {
   padding: 30px;
 }
 .feature-card {
-  background-color: rgba(145, 145, 145, 0.716); /* Set the background color with transparency */
+  background-color: rgb(255, 255, 255); /* Set the background color with transparency */
   border-radius: 20px; /* Make the edges rounder */
   padding: 50px; /* Increase padding for a bigger card */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.152), 
-          0 4px 12px rgba(84, 240, 183, 0.616); /* Add glassmorphism effect */
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.152), 
+          0 4px 12px rgba(84, 240, 183, 0.616);*/ 
   text-align: center;
   width: 350px; /* Increase width for a bigger card */
 }
+.feature-card:hover{
+  background-color: lavenderblush;
+}
 .feature-card h3 {
   margin-bottom: 20px;
-  color: #f56d6d;
+  color: #000000;
 }
 .feature-card p {
-  color: #fe5252d4;
+  color: #111111d4;
 }
 .features-icon {
   width: 50px;
   height: 50px;
-  fill: #e33d3d;
+  fill: #000000;
   margin-bottom: 20px;
-}
-.feature-card:hover {
-  background-color: rgba(214, 213, 213, 0.184); /* Change the background color on hover */
-  box-shadow: 0 6px 12px rgba(40, 228, 159, 0.8); /* Increase box shadow on hover */
 }
 .button-container {
   display: flex;
@@ -128,14 +142,13 @@ nav ul li a:hover {
   border-radius: 5px;
   height: 100px;
   cursor: pointer;
-  background-color: rgba(145, 145, 145, 0.716);
+  background-color:rgb(255, 255, 255);
   color: rgb(231, 66, 66); 
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  /*transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;*/
 }
 .button-container button:hover {
-  background-color: rgba(198, 196, 196, 0.267);
-  color: rgba(255, 255, 255, 0.153);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.799);
+  background-color: lavenderblush;
+  /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.799);*/
 }
 .satisfied-users-button {
   padding: 0;
@@ -193,41 +206,40 @@ nav ul li a:hover {
 }
 h1{
   font-size: 2em;
-  color: rgb(240, 109, 109);
-  text-decoration:wavy;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);
-  font-family:'Courier New', Courier, monospace;
+  color: black;
+  /*text-decoration:wavy;*/
+  /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);*/
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 p{
   font-size:x-large;
   font-weight: bolder;
-  color:rgba(243, 120, 120, 0.741);
-  text-decoration:wavy;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);
-  font-family:'Courier New', Courier, monospace;
-  text-emphasis-color:inherit;
+  color:black;
+  /*text-decoration:wavy;*/
+  /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);*/
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 h2{
     font-size: 2em;
-    color: rgb(240, 109, 109);
-    text-decoration:wavy;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);
-    font-family:'Courier New', Courier, monospace;
+    color: black;
+    /*text-decoration:wavy;*/
+    /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);*/
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
 }
 h3{
   font-size: 1.5em;
-  color: rgb(244, 123, 123);
-  text-decoration:wavy;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);
-  font-family:'Courier New', Courier, monospace;
+  color: black;
+  /*text-decoration:wavy;*/
+  /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);*/
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 h4{
   font-size: 1.5em;
-  color: rgb(244, 123, 123);
-  text-decoration:wavy;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);
-  font-family:'Courier New', Courier, monospace;
+  color:black;
+  /*text-decoration:wavy;*/
+ /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.964);*/
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .images-container {
   display: flex;
@@ -264,19 +276,19 @@ margin-bottom: 0px;
 footer {
     padding: 50px;
     text-align: center;
-    color: rgba(243, 120, 120, 0.741); /* Match the color for text */
+    color: black /* Match the color for text */
 }
 footer p {
     margin-bottom: 50px;
-    color: rgba(243, 120, 120, 0.741); /* Match the color for text */
-    -webkit-text-fill-color: rgba(243, 120, 120, 0.741); /* Match the color for text */
+    color:black; /* Match the color for text */
+    -webkit-text-fill-color: black; /* Match the color for text */
 }
 
 .marquee {
     white-space: nowrap;
     overflow: hidden;
     animation: marquee 15s linear infinite;
-    color: rgba(243, 120, 120, 0.741); /* Match the color for text */
+    color:black; /* Match the color for text */
 }
 @keyframes marquee {
     0% {
@@ -291,7 +303,7 @@ table {
 }
 td {
     padding: 50px;
-    border: 5px solid #ccc;
+    border: 5px solid lavenderblush
 }
 .item {
     display: flex;
@@ -299,29 +311,57 @@ td {
     gap: 20px;
 }
 .item button{
-    padding: 50px;
-    background-color: rgba(145, 145, 145, 0.716);
+  padding: 50px;
+  background-color:rgb(254, 254, 254);
 }
 .item button:hover{
-    background-color: rgba(198, 196, 196, 0.267);
-    color: rgba(255, 255, 255, 0.153);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.799);
+    background-color: lavenderblush
+    /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.799);*/
 }
 th{
-    color: rgba(243, 120, 120, 0.741);
+    color: black;
     font-size: large;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
 }
 td{
-    color: rgba(243, 120, 120, 0.741);
+    color: black;
     font-size: large;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
 }
 form{
-    color: rgba(243, 120, 120, 0.741);
+    color:black;
     font-size: large;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
 }
+span{
+  color: black;
+}
+.feature-card-button{
+  font-size: 24px;
+  color:rgb(235, 55, 214);
+}
+.image6 {
+  width: 90%; 
+  height: 100%;
+  margin: 20px auto 0;
+  display: block;
+}
+footer {
+  padding: 20px;
+  text-align: center;
+  color: #333; /* Dark text color */
+  font-size: 1em; /* Adjust font size as needed */
+}
+.social-icon {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  margin-right: 5px; /* Add some spacing between the icon and text */
+}
+a{
+  font-size: 1rem;
+}
+
+
