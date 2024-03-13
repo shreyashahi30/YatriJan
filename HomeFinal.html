@@ -1,148 +1,117 @@
-User
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YatriJan</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost And Found</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-  <header>
-  <nav>
-    <ul>
-      <li><a href="#">Ticket Scanning</a></li>
-      <li><a href="#">Co Passengers</a></li>
-      <li><a href="#">Food and Beverages</a></li>
-      <li><a href="#">Cleanliness</a></li>
-      <li><a href="lost_and_found.html">Lost And Found</a></li>
-    </ul>
-    <button class="login-button">Login</button>
-  </nav>
-</header>
-<span class="block-letters">Welcome to YatriJan</span>
-<main>
-  <div class="button-container">
-    <button class="satisfied-users-button">
-      <div class="button-content">
-        <img src="image.png" alt="Satisfied Users" height="50px" class="satisfied-users-image">
-        <span class="satisfied-users-text">Users  21k+</span>
-      </div>
-    </button>  
-    <button class="reviews-button">
-		<div class="button-content">
-		  <img src="https://martech.org//wp-content//uploads//2016//04//ss-rating-review-stars.jpg" alt="Reviews" class="satisfied-users-image">
-		  <span class="satisfied-users-text">Reviews 51K+</span>
-		</div>
-	  </button>
-	  <button class="reports-button">
-		<div class="button-content">
-		  <img src="picture 14.jpg" alt="Reports Issued" class="satisfied-users-image">
-		  <span class="satisfied-users-text">Reports Issued 21k+</span>
-		</div>
-	  </button>
-  </div>
-  <div class="container">
-  <div class="features-container">
-    <div class="feature-card">
-        <h4>Features</h4>
-        <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-h</title><path d="M448,341.37V170.61A32,32,0,0,0,432.11,143l-152-88.46a47.94,47.94,0,0,0-48.24,0L79.89,143A32,32,0,0,0,64,170.61V341.37A32,32,0,0,0,79.89,369l152,88.46a48,48,0,0,0,48.24,0l152-88.46A32,32,0,0,0,448,341.37Z" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><polyline points="69 153.99 256 263.99 443 153.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="256" y1="463.99" x2="256" y2="263.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
-        <h3>Home</h3>
-        <p>Explore the latest updates and information about your journey.</p>
-      </div>
-    <div class="feature-card">
-      <h4>Features</h4>
-      <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-h</title><path d="M448,341.37V170.61A32,32,0,0,0,432.11,143l-152-88.46a47.94,47.94,0,0,0-48.24,0L79.89,143A32,32,0,0,0,64,170.61V341.37A32,32,0,0,0,79.89,369l152,88.46a48,48,0,0,0,48.24,0l152-88.46A32,32,0,0,0,448,341.37Z" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><polyline points="69 153.99 256 263.99 443 153.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="256" y1="463.99" x2="256" y2="263.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
-      <h3>Ticket Scanning</h3>
-      <p>Scan your ticket for easy and quick access to your train journey.</p>
-    </div>
-    <div class="feature-card">
-      <h4>Features</h4>
-      <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-h</title><path d="M448,341.37V170.61A32,32,0,0,0,432.11,143l-152-88.46a47.94,47.94,0,0,0-48.24,0L79.89,143A32,32,0,0,0,64,170.61V341.37A32,32,0,0,0,79.89,369l152,88.46a48,48,0,0,0,48.24,0l152-88.46A32,32,0,0,0,448,341.37Z" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><polyline points="69 153.99 256 263.99 443 153.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="256" y1="463.99" x2="256" y2="263.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
-      <h3>Co Passengers</h3>
-      <p>View and manage details of your co-passengers for a hassle-free journey.</p>
-    </div>
-    <div class="feature-card">
-      <h4>Features</h4>
-      <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-h</title><path d="M448,341.37V170.61A32,32,0,0,0,432.11,143l-152-88.46a47.94,47.94,0,0,0-48.24,0L79.89,143A32,32,0,0,0,64,170.61V341.37A32,32,0,0,0,79.89,369l152,88.46a48,48,0,0,0,48.24,0l152-88.46A32,32,0,0,0,448,341.37Z" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><polyline points="69 153.99 256 263.99 443 153.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="256" y1="463.99" x2="256" y2="263.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
-      <h3>Food and Beverages</h3>
-      <p>Explore and order from a wide range of food and beverages available.</p>
-    </div>
-    <div class="feature-card">
-      <h4>Features</h4>
-      <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-h</title><path d="M448,341.37V170.61A32,32,0,0,0,432.11,143l-152-88.46a47.94,47.94,0,0,0-48.24,0L79.89,143A32,32,0,0,0,64,170.61V341.37A32,32,0,0,0,79.89,369l152,88.46a48,48,0,0,0,48.24,0l152-88.46A32,32,0,0,0,448,341.37Z" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><polyline points="69 153.99 256 263.99 443 153.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="256" y1="463.99" x2="256" y2="263.99" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
-      <h3>Cleanliness</h3>
-      <p>Report and track cleanliness issues for a pleasant journey experience.</p>
-    </div>
-  </div>
-  <div class="button-container">
-    <button onclick="prevCard()">&#8249;</button>
-    <button onclick="nextCard()">&#8250;</button>
-  </div>
-</div>
-</main>
-<h1>About Us</h1>
-<h3>MaKe Your journey memorable!!!</h3>
-<p>Welcome to YatriJan: the dynamic online program designed to revolutionize railway administration for the Indian Railway Catering and Tourism Corporation (IRCTC). 
-At YatriJan, we're on a mission to redefine the passenger experience through innovation and technology. 
-Our platform offers a range of advanced features, including seamless co-passenger management, enhanced parental controls, and upgraded food and beverage services. With real-time cleanliness feedback and efficient ticket scanning, we ensure a hassle-free journey every time. 
-Join us as we embark on a journey to transform railway travel into a seamless, intuitive, and technologically advanced adventure. 
-Experience the future of rail travel with YatriJan!</p>
-<h1>Picture Gallery</h1>
-<div class="images-container">
-  <img src="train_image1.jpg" alt="Image 1" class="image image1">
-  <img src="train_image2.jpg" alt="Image 2" class="image">
-  <img src="train_image3.jpg" alt="Image 3" class="image image3">
-  <img src="train_image4.jpg" alt="Image 4" class="image">
-  <img src="train_image5.jpg" alt="Image 5" class="image">
-</div>
-<h3>Our Motto</h3>
-<h4>Enhance Your Train journey and discovering the exciting features that Yatrijan offers for a seamless travel experience</h4>
-<footer>
-  <p class="marquee">Welcome to YatriJan - Transforming your railway journey!</p>
-</footer>
-<div class="contact-container">
-  <div class="contact">
-    <img src="https://png.pngtree.com/png-vector/20230912/ourmid/pngtree-green-email-icon-button-envelope-png-image_9570523.png" alt="Email" width="50px">
-    <h3>Email</h3>
-    <h3>Contact@abcmakers.com</h3>
-  </div>
-  <div class="contact">
-    <img src="https://i.pinimg.com/1200x/28/84/17/288417594877c29d61d3e9ec2c102934.jpg" alt="Phone" width="50px">
-    <h3>Call Us</h3>
-    <h3>+9197245609877</h3>
-  </div>
-  <div class="contact">
-    <img src="https://png.pngtree.com/png-vector/20220827/ourmid/pngtree-location-icon-button-position-vector-png-image_33507260.png" alt="Location" width="50px">
-    <h3>Head Office</h3>
-    <h3>Sector 3 HSR Layout Banglore</h3>
-  </div>
-</div>
-  <script>
-    let currentIndex = 0;
-    const cards = document.querySelectorAll('.feature-card');
+    <header>
+        <nav style="padding: 20px;">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Notifications</a></li>
+            </ul>
+            <button class="login-button">Profile</button>
+        </nav>
+    </header>
+    <h1>Report Lost Item</h1>
+    <h3>Select the category of your lost Item</h3>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Image</th>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('personal')">Personal Item</button>
+            </td>
+            <td style="border: 1px solid black; padding: 8px;">Description: Personal items such as keys, wallets, etc.</td>
+            <td style="border: 1px solid black; padding: 8px;"><img src="https://cdn.thewirecutter.com/wp-content/uploads/2019/11/Personal_Items_for_Travel-lowres-48.jpg?auto=webp&quality=75&width=1024" alt="Luggage" width="200px"></td>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('clothing')">Clothing Or Accessories</button>
+            </td>
+            <td style="border: 1px solid black; padding: 8px;">Description: Clothing items or accessories such as jewelry, hats, etc.</td>
+            <td style="border: 1px solid black; padding: 8px;"><img src="https://promova.com/content/accessory_79573b939f.png" alt="Accessories" width="200px"></td>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('electronic')">Electronic Devices</button>
+            </td>
+            <td style="border: 1px solid black; padding: 8px;">Description: Electronic devices such as phones, laptops, etc.</td>
+            <td style="border: 1px solid black; padding: 8px;"><img src="https://7esl.com/wp-content/uploads/2020/12/electronic-devices.jpg" alt="Electronic Devices" width="100px"></td>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('luggage')">Luggage</button>
+            </td>
+            <td style="border: 1px solid black; padding: 8px;">Description: Bags, suitcases, or other luggage items.</td>
+            <td style="border: 1px solid black; padding: 8px;"><img src="https://assets.teenvogue.com/photos/643de77798e830c20d9cbd0e/16:9/w_2560%2Cc_limit/GettyImages-1370841285.jpg" alt="Luggage" width="200px"></td>
+        </tr>
+        <tr>
+            <td class="item">
+                <button onclick="showForm('other')">Other</button>
+            </td>
+            <td style="border: 1px solid black; padding: 8px;">Description: Items that do not fit into any other category.</td>
+            <td style="border: 1px solid black; padding: 8px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGI0rbJJ2FtuFjCv8DAmP_U00BUVzva535-Q&usqp=CAU" alt="Other Items" width="200px"></td>
+        </tr>
+    </table>
 
-    function showCard(index) {
-      cards.forEach((card, i) => {
-        if (i === index) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
+    <div id="report-form" style="display:flex;">
+        <h2>Report Details</h2>
+        <form>
+            <label for="item-description">Item Description:</label><br>
+            <input type="text" id="item-description" name="item-description"><br>
+            <label for="date">Date of Losing:</label><br>
+            <input type="date" id="date" name="date"><br>
+            <label for="time">Time of Losing:</label><br>
+            <input type="time" id="time" name="time"><br><br>
+            <label for="station-description">Station Lost At:</label><br>
+            <input type="text" id="station-description" name="station-description"><br>
+            <label for="next-station">Next Station:</label><br>
+            <input type="text" id="next-station" name="next-station"><br>
+            <label for="before-station">Before Station:</label><br>
+            <input type="text" id="before-station" name="before-station"><br>
+            <input type="submit" value="Submit" onclick="submitReport(event)">
+        </form>
+    </div>
+    
+    <script>
+        function showForm(category) {
+            // Show the form
+            document.getElementById('report-form').style.display = 'block';
+            alert("You have selected " + category + " item.");
         }
-      });
-    }
-
-    function nextCard() {
-      currentIndex = (currentIndex + 1) % cards.length;
-      showCard(currentIndex);
-    }
-
-    function prevCard() {
-      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-      showCard(currentIndex);
-    }
-
-    showCard(currentIndex);
-  </script>
+    
+        function submitReport(event) {
+            event.preventDefault();
+            const itemDescription = document.getElementById('item-description').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const timeArray = time.split(":"); // Split the time into hours and minutes
+            const hours = timeArray[0];
+            const minutes = timeArray[1];
+            const stationDescription = document.getElementById('station-description').value;
+            const nextStation = document.getElementById('next-station').value;
+            const beforeStation = document.getElementById('before-station').value;
+            alert("Report Details:\nItem Description: " + itemDescription + "\nDate of Losing(DD/MM/YYYY): " + date + "\nTime of Losing in hours and minutes: " + hours + ":" + minutes + "\nStation Lost At: " + stationDescription + "\nNext Station: " + nextStation + "\nBefore Station: " + beforeStation);
+        }
+    </script>    
 </body>
 </html>
