@@ -6,7 +6,7 @@
     <title>Lost And Found</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-image: url('picture 11.jpg');">
+<body>
     <header>
         <nav style="padding: 20px;">
           <ul>
@@ -18,7 +18,7 @@
         </nav>
       </header>
     <h1>Report Lost Item</h1>
-    <h3>1. Select the category of your lost Item</h3>
+    <h3>Select the category of your lost Item</h3>
     <table>
         <tr>
             <th>Category</th>
@@ -61,28 +61,39 @@
             <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGI0rbJJ2FtuFjCv8DAmP_U00BUVzva535-Q&usqp=CAU" alt="Other Items" width="200px"></td>
         </tr>
     </table>
-
-    <div id="report-form" style="display: none;">
+    <div id="form-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px;">
         <h2>Report Details</h2>
-        <form>
+        <form id="report-form">
             <label for="item-description">Item Description:</label><br>
             <input type="text" id="item-description" name="item-description"><br>
             <label for="date">Date of Losing:</label><br>
             <input type="date" id="date" name="date"><br>
             <label for="time">Time of Losing:</label><br>
             <input type="time" id="time" name="time"><br><br>
-            <input type="submit" value="Submit" onclick="submitReport(event)">
+            <label for="station-description">Station Lost At:</label><br>
+            <input type="text" id="station-description" name="station-description"><br>
+            <label for="next-station">Next Station:</label><br>
+            <input type="text" id="next-station" name="next-station"><br>
+            <label for="before-station">Before Station:</label><br>
+            <input type="text" id="before-station" name="before-station"><br>
+            <input type="submit" value="Submit">
         </form>
+        <button onclick="hideForm()">Close</button>
     </div>
-
+    
     <script>
         function showForm(category) {
-            // Show the form
-            document.getElementById('report-form').style.display = 'block';
+            // Show the form pop-up
+            document.getElementById('form-popup').style.display = 'block';
             alert("You have selected " + category + " item.");
         }
 
-        function submitReport(event) {
+        function hideForm() {
+            // Hide the form pop-up
+            document.getElementById('form-popup').style.display = 'none';
+        }
+
+        document.getElementById('report-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const itemDescription = document.getElementById('item-description').value;
             const date = document.getElementById('date').value;
@@ -90,8 +101,19 @@
             const timeArray = time.split(":"); // Split the time into hours and minutes
             const hours = timeArray[0];
             const minutes = timeArray[1];
-            alert("Report Details:\nItem Description: " + itemDescription + "\nDate of Losing(DD/MM/YYYY): " + date + "\nTime of Losing in hours and miniutes: " + hours + ":" + minutes);
-        }
+            const stationDescription = document.getElementById('station-description').value;
+            const nextStation = document.getElementById('next-station').value;
+            const beforeStation = document.getElementById('before-station').value;
+            const reportDetails = `Report Details:
+                Item Description: ${itemDescription}
+                Date of Losing(DD/MM/YYYY): ${date}
+                Time of Losing in hours and minutes: ${hours}:${minutes}
+                Station Lost At: ${stationDescription}
+                Next Station: ${nextStation}
+                Before Station: ${beforeStation}`;
+            alert(reportDetails);
+            hideForm(); // Close the form pop-up after submitting
+        });
     </script>
 </body>
 </html>
