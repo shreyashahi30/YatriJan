@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        #notification-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .notification {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Notifications</h1>
+    </header>
+    <div id="notification-container">
+        <p>A wallet was found near the ticket counter. Please contact the station staff to claim.</p>
+        <p>A pair of keys was found on platform 2. Please contact the station manager to retrieve them.</p>
+        <p>A laptop was found in the waiting area. If it's yours, please come to the lost and found office.</p>
+        <p>A jacket was found in the restroom. Please describe it to claim it.</p>
+        <p>A mobile phone was found on the train. Please provide the model and lock screen picture to claim it.</p>
+        <p>A bag was found on the platform bench. Please describe its contents to claim it.</p>
+        <p>A set of headphones was found near the entrance. Please provide a unique identifier to claim them.</p>
+        <p>A watch was found on the ticketing counter. Please describe it to claim it.</p>
+        <p>A pair of sunglasses was found in the parking lot. Please provide a description to claim them.</p>
+        <p>A camera was found in the waiting area. Please describe it to claim it.</p>
+    </div>
+
+    <script>
+        // Function to add a new notification
+        function addNotification(message) {
+            const notificationContainer = document.getElementById('notification-container');
+            const newNotification = document.createElement('div');
+            newNotification.classList.add('notification');
+            newNotification.innerText = message;
+            notificationContainer.appendChild(newNotification);
+        }
+
+        // Example: Add a notification when a new item is found
+        addNotification("Luggage found at platform 3, please contact the station manager to claim.");
+
+        // You can call addNotification whenever a new item is found to display the message
+    </script>
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food and Beverages</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Position the section relative to the image */
+        section {
+            position: relative;
+            display: inline-block; /* Allow section to shrink to fit content */
+        }
+
+        /* Position the form inside the section */
+        form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 90px;
+            width:auto;
+            height: 300px;
+            border-radius: 30px;
+            align-items: center;
+        }
+
+        /* Style the buttons and inputs */
+        button {
+            padding: 5px 5px;
+            margin-right: 5px;
+        }
+
+        input[type="text"] {
+            padding: 20px;
+            margin-bottom: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        /* Style the image */
+        .food-image {
+            max-width: 100%;
+            height: auto;
+            display: flex;
+        }
+        /* Style the buttons container */
+        #buttons {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        h1{
+            /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);*/
+            font-weight: bold;
+            font-size: 24px;
+            color: black;
+        }
+        #pnr{
+        padding-left: 30px; /* Adjust the padding to fit the image */
+        background-image: url("search_logo.jpg");
+        background-size: 20px; /* Adjust the size of the image */
+        background-position: 10px center; /* Adjust the position of the image */
+        background-repeat: no-repeat;
+        }
+        #birth{
+        padding-left: 30px; /* Adjust the padding to fit the image */
+        background-image: url("https://static.thenounproject.com/png/16134-200.png");
+        background-size: 20px; /* Adjust the size of the image */
+        background-position: 10px center; /* Adjust the position of the image */
+        background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color:lavenderblush">
+        <nav style="width:50%;">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#" onclick="addToCart()">Cart Items</a></li>
+          </ul>
+          <button class="login-button">Payment</button>
+        </nav>
+    </header>
+    <section>
+        <div class="food-container">
+        <img src="https://t3.ftcdn.net/jpg/02/97/67/70/360_F_297677001_zX7ZzRq8DObUV5IWTHAIhAae6DuiEQh4.jpg" alt="Food Menu" class="food-image">
+    </div>
+        <form>
+            <h1 style>Let's make your Journey easier!</h1>
+            <input type="text" id="pnr" name="pnr" placeholder="Enter Your PNR" required><br><br>
+            <input type="text" id="birth" name="birth" placeholder="Enter Birth Number" required><br><br>
+
+            <div id="buttons">
+                <div onclick="display_menu('in-train')" class="filter_button in-train">In-Train Menu</div>
+                <div onclick="display_menu('out-train')" class="filter_button out-train">Out-Train Menu</div>
+            </div>
+          
+            <!-- Add QR code scan button or link here -->
+            <button type="button" onclick="scanQRCode()">Scan QR Code</button>
+        </form>
+    </section>    
+    <section>
+        <img src="working.jpg" alt="Working" width="100%">
+    </section>
+    <section>
+        <h1 style="text-align: center;color: black;font-size: 50px;font-family:'Times New Roman', Times, serif">Order from the best brands</h1>
+        <img src="food.png" alt="Food" width="100%">
+    </section>
+    <section style="color: #f4f4f4">
+        <p style="font-size: 20px;">The food and beverages page of YatriJan offers a delightful culinary experience for train travelers, providing a wide range of delicious and hygienically prepared meals, snacks, and beverages. Passengers can conveniently order their favorite items through the YatriJan app or website, ensuring a hassle-free dining experience during their journey. With options available for both vegetarian and non-vegetarian preferences, passengers can choose from an extensive menu designed to cater to diverse tastes and dietary requirements. YatriJan's commitment to quality and safety ensures that all food and beverages are prepared and delivered following strict health and hygiene standards, providing passengers with a delightful and satisfying dining experience on their train journey.</p>
+        <br>
+        <h1 style="color: black;">Common Questions</h1>
+        <h1 style="font-size: 30px; font-weight: bold; color:black;">What food and beverage options are available for in-train passengers?</h1>
+        <p style="font-size: 20px; color: black;"> In-train passengers can choose from a variety of food and beverage options, including meals, snacks, and beverages, delivered directly to their seats.</p>
+        <br>
+        <h1 style="font-size: 30px; font-weight: bold; color:black;">How can I order food and beverages for my train journey?</h1>
+        <p style="font-size: 20px; color: black;"> You can order food and beverages for your train journey through the YatriJan app or website, selecting from the available menu options.</p>
+        <br>
+        <h1 style="font-size: 30px; font-weight: bold; color:black;">Are there vegetarian and non-vegetarian food options available?</h1>
+        <p style="font-size: 20px; color: black;">Yes, YatriJan offers both vegetarian and non-vegetarian food options to cater to different dietary preferences.</p>
+        <br>
+        <h1 style="font-size: 30px; font-weight: bold; color:black;">Are there any health and safety measures in place for preparing and delivering food and beverages?</h1>
+        <p style="font-size: 20px; color: black;">Yes, YatriJan follows strict health and safety guidelines for preparing and delivering food and beverages, ensuring that they are safe for consumption..</p>
+        </section>
+<div id="display_menu">
+    <div id="in-train" class="hide menu_items">
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>Breakfast</td>
+                <td>Veg Biryani</td>
+                <td>A fragrant rice dish cooked with mixed vegetables and aromatic spices.</td>
+                <td>Rs.120</td>
+                <td><button onclick="addToCart('Veg Biryani', 120)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Paneer Tikka</td>
+                <td>Soft and succulent paneer marinated in spices and grilled.</td>
+                <td>Rs.100</td>
+                <td><button onclick="addToCart('Paneer Tikka', 100)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Masala Dosa</td>
+                <td>A South Indian delicacy made with rice and lentil batter, filled with a spicy potato mixture.</td>
+                <td>Rs.70</td>
+                <td><button onclick="addToCart('Masala Dosa', 70)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Dinner</td>
+                <td>Chicken Curry</td>
+                <td>Tender chicken pieces cooked in a rich and spicy gravy.</td>
+                <td>Rs.170</td>
+                <td><button onclick="addToCart('Chicken Curry', 170)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Dinner</td>
+                <td>Dal Tadka</td>
+                <td>Yellow lentils tempered with spices and ghee.</td>
+                <td>Rs.60</td>
+                <td><button onclick="addToCart('Dal Tadka', 60)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Dinner</td>
+                <td>Roti</td>
+                <td>Indian flatbread made with whole wheat flour.</td>
+                <td>Rs.10 per piece</td>
+                <td><button onclick="addToCart('Roti', 10)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Dessert</td>
+                <td>Gulab Jamun</td>
+                <td>Deep-fried milk solids soaked in sugar syrup, a popular Indian dessert.</td>
+                <td>Rs.40 for 2 pieces</td>
+                <td><button onclick="addToCart('Gulab Jamun', 40)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Breakfast/Snacks</td>
+                <td>Tea/Coffee</td>
+                <td>Hot beverage made with tea leaves or coffee powder, milk, and sugar.</td>
+                <td>Rs.10</td>
+                <td><button onclick="addToCart('Tea/Coffee', 10)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Breakfast</td>
+                <td>Idli</td>
+                <td>Steamed rice cakes served with sambar and chutney.</td>
+                <td>Rs.50</td>
+                <td><button onclick="addToCart('Idli', 50)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Chole Bhature</td>
+                <td>Deep-fried bread served with spicy chickpea curry.</td>
+                <td>Rs.90</td>
+                <td><button onclick="addToCart('Chole Bhature', 90)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Aloo Tikki</td>
+                <td>Spiced potato patties served with chutney.</td>
+                <td>Rs.60</td>
+                <td><button onclick="addToCart('Aloo Tikki', 60)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Dinner</td>
+                <td>Mix Veg Curry</td>
+                <td>Assorted vegetables cooked in a spicy gravy.</td>
+                <td>Rs.130</td>
+                <td><button onclick="addToCart('Mix Veg Curry', 130)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Breakfast</td>
+                <td>Upma</td>
+                <td>South Indian dish made with semolina and vegetables.</td>
+                <td>Rs.80</td>
+                <td><button onclick="addToCart('Upma', 80)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Palak Paneer</td>
+                <td>Paneer cubes cooked in a spinach-based gravy.</td>
+                <td>Rs.140</td>
+                <td><button onclick="addToCart('Palak Paneer', 140)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Bhel Puri</td>
+                <td>A savory snack made with puffed rice, vegetables, and chutneys.</td>
+                <td>Rs.70</td>
+                <td><button onclick="addToCart('Bhel Puri', 70)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Dinner</td>
+                <td>Jeera Rice</td>
+                <td>Basmati rice flavored with cumin seeds.</td>
+                <td>Rs.100</td>
+                <td><button onclick="addToCart('Jeera Rice', 100)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Breakfast</td>
+                <td>Masala Omelette</td>
+                <td>Omelette filled with spicy onion and tomato mixture.</td>
+                <td>Rs.70</td>
+                <td><button onclick="addToCart('Masala Omelette', 70)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Butter Naan</td>
+                <td>Indian bread made with refined flour and butter.</td>
+                <td>Rs.20 per piece</td>
+                <td><button onclick="addToCart('Butter Naan', 20)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Paneer Pakora</td>
+                <td>Crispy fried cottage cheese fritters.</td>
+                <td>Rs.100</td>
+                <td><button onclick="addToCart('Paneer Pakora', 100)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Dinner</td>
+                <td>Vegetable Pulao</td>
+                <td>Fragrant rice cooked with mixed vegetables and spices.</td>
+                <td>Rs.120</td>
+                <td><button onclick="addToCart('Vegetable Pulao', 120)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Dahi Vada</td>
+                <td>Deep-fried lentil dumplings soaked in yogurt and topped with spices.</td>
+                <td>Rs.80</td>
+                <td><button onclick="addToCart('Dahi Vada', 80)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Dessert</td>
+                <td>Rasgulla</td>
+                <td>Spongy balls of cottage cheese soaked in sugar syrup.</td>
+                <td>Rs.60 for 2 pieces</td>
+                <td><button onclick="addToCart('Rasgulla', 60)">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>Breakfast</td>
+                <td>Medu Vada</td>
+                <td>Deep-fried lentil fritters served with sambar and chutney.</td>
+                <td>Rs.60 for 2 pieces</td>
+                <td><button onclick="addToCart('Medu Vada', 60)">Add to Cart</button></td>
+            </tr>            
+        </table>
+        <div id="cart">
+            <h2>Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be displayed here -->
+            </ul>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+    <div id="out-train" class="hide menu_items">
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Action(Zomato)</th>
+                <th>Action(Swiggy)</th>
+            </tr>
+            <tr>
+                <td>Breakfast</td>
+                <td>Veg Sandwich</td>
+                <td>A delicious sandwich filled with fresh vegetables and a choice of spreads.</td>
+                <td>
+                    <a href="https://www.zomato.com/bangalore/delivery?dishv2_id=50104" target="_blank">Order on Zomato</a>
+                </td>
+                <td>
+                    <a href="https://www.swiggy.com/city/bangalore/veg-sandwich-dish-restaurants" target="_blank">Order on Swiggy</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Lunch/Breakfast</td>
+                <td>Chicken Wrap</td>
+                <td>A wrap filled with spicy chicken, lettuce, and mayonnaise.</td>
+                <td>
+                    <a href="https://www.zomato.com/bangalore/delivery?dishv2_id=35973" target="_blank">Order on Zomato</a>
+                </td>
+                <td>
+                    <a href="https://www.swiggy.com/search?query=chicken+wrap" target="_blank">Order on Swiggy</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Egg Biryani</td>
+                <td>Flavorful biryani made with fragrant rice and boiled eggs.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=7008"  target="_blank">Order on Zomato</a></td>
+                <td> <a href="https://www.swiggy.com/search?query=Egg+Biryani" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Chicken Biryani</td>
+                <td>Classic biryani made with tender chicken pieces and aromatic spices.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=35969" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=chicken+biryani" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Veg Pulao</td>
+                <td>Fragrant rice cooked with mixed vegetables and spices.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=112278" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=veg+pulao" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>French Fries</td>
+                <td>Crispy fried potato fingers seasoned with salt and pepper.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=117997" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=french+fries" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Pakoras</td>
+                <td>Assorted fritters made with vegetables and gram flour.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=21507" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=pakoras" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Chicken Fried Rice</td>
+                <td>Stir-fried rice with chicken, vegetables, and soy sauce.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=45506" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=chicken+fried+rice" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Samosas</td>
+                <td>Deep-fried pastry filled with spiced potatoes and peas.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=10974" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=samosas" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Popcorn</td>
+                <td>Classic movie-time snack, lightly salted and buttered.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=3996" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=popcorn" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Fruit Salad</td>
+                <td>Assorted fresh fruits chopped and mixed together.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=11597" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=fruit+salad" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Dessert</td>
+                <td>Ice Cream</td>
+                <td>Vanilla, chocolate, or strawberry flavored ice cream.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=26394" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=ice+cream" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Butter Chicken</td>
+                <td>Chicken cooked in a creamy tomato-based sauce.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=34438" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=butter+chicken" target="_blank">Order on Swiggy</a></td>
+            </tr>      
+            <tr>
+                <td>Lunch</td>
+                <td>Vegetable Biryani</td>
+                <td>Flavorful rice dish made with mixed vegetables and aromatic spices.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=2895" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=vegetable+biryani" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Chicken Sandwich</td>
+                <td>A sandwich filled with grilled chicken, lettuce, and mayonnaise.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=12649" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=chicken+sandwich" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Paneer Butter Masala</td>
+                <td>Paneer cooked in a creamy tomato-based sauce.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=7348" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=paneer+butter+masala" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Veg Fried Rice</td>
+                <td>Stir-fried rice with mixed vegetables.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=25829" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=veg+fried+rice" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Palak Paneer</td>
+                <td>Paneer cooked in a creamy spinach sauce.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=32389" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=palak+paneer" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Chicken Roll</td>
+                <td>Spicy chicken wrapped in a paratha.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=5826" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=chicken+roll" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Veg Manchurian</td>
+                <td>Deep-fried vegetable balls in a spicy, tangy sauce.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=7411" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=veg+manchurian" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Chicken Noodles</td>
+                <td>Stir-fried noodles with chicken and vegetables.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=14452" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=chicken+noodles" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Chole Bhature</td>
+                <td>Spicy chickpea curry served with fried bread.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=634" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=chole+bhature" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Onion Pakoras</td>
+                <td>Crispy fried onion fritters.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=3550" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=onion+pakoras" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Chicken Popcorn</td>
+                <td>Popcorn-sized chicken pieces, fried and seasoned.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=5746" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=chicken+popcorn" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Aloo Tikki</td>
+                <td>Spiced potato patties served with chutney.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=12148" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=aloo+tikki" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Corn Chaat</td>
+                <td>Spicy and tangy corn salad.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=2775" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=corn+chaat" target="_blank">Order on Swiggy</a></td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Vegetable Spring Rolls</td>
+                <td>Crispy rolls filled with vegetables.</td>
+                <td><a href="https://www.zomato.com/bangalore/delivery?dishv2_id=11613" target="_blank">Order on Zomato</a></td>
+                <td><a href="https://www.swiggy.com/search?query=vegetable+spring+rolls" target="_blank">Order on Swiggy</a></td>
+            </tr>                  
+        </table>
+    </div>
+</div>
+<script>
+    let cartItems = [];
+
+    function addToCart(item, price) {
+        cartItems.push({ item, price });
+        updateCart();
+        updateCartDisplay();
+    }
+
+    function updateCart() {
+        const cartList = document.getElementById('cart-items');
+        cartList.innerHTML = '';
+        cartItems.forEach(cartItem => {
+            const li = document.createElement('li');
+            li.textContent = `${cartItem.item} - Rs.${cartItem.price}`;
+            cartList.appendChild(li);
+        });
+    }
+
+    function checkout() {
+        alert('Your total amount is Rs.' + cartItems.reduce((total, item) => total + item.price, 0));
+        cartItems = [];
+        updateCart();
+    }
+
+    function display_menu(item) {
+        let q = document.getElementsByClassName('menu_items');
+        for (let x of q) {
+            let id = x.id;
+            if (id === item) {
+                x.classList.remove('hide');
+            } else {
+                x.classList.add('hide');
+            }
+        }
+        q = document.getElementsByClassName('filter_button');
+        for (let x of q) {
+            let class_ = x.classList;
+            if (class_.contains(item)) {
+                x.classList.add('selected');
+            } else {
+                x.classList.remove('selected');
+            }
+        }
+    }
+</script>
+</body>
+</html>
