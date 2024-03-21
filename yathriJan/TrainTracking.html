@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Tracker</title>
+    <stle <link rel="stylesheet" href="style.css">
+    <style>
+         body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background-image.jpg');
+            background-size: cover;
+            color: #495057;
+            overflow-x: hidden; /* Prevent horizontal scroll on
+smaller screens */
+        }
+
+        header {
+            background-color:whitesmoke;
+            color: rgb(8, 0, 0);
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgba(144, 239, 254, 0.842);;
+            color: rgb(0, 0, 0);
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: rgb(7, 0, 0);
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+        }
+        #add-train-form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 100px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #add-train-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bolder;
+        }
+        #add-train-form input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #add-train-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #ff0000;
+            color: white;
+            border-radius: 5px;
+            cursor:pointer;
+        }
+        .container-train {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 8px;
+            /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+            background-image: linear-gradient(45deg,#fa4ec9, #ffffff);
+        }
+        .container-train img {
+            width: 50%; 
+            height: 50%;
+            object-fit: cover; 
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;font-weight: bolder;font-style: oblique;">Rail Radar: Tracking Trains in Real Time</h1>
+    <main>
+        <h2>Add Train Details</h2>
+        <div class="container-train">
+            <img src="train-tracking.png" alt="Image">
+        <form id="add-train-form">
+            <label for="train-name">Train Name:</label>
+            <input type="text" id="train-name" name="train-name" required placeholder="Enter Train Number"><br>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required placeholder="Enter Departure/Destination"><br>
+            <label for="prev-station">Previous Station:</label>
+            <input type="text" id="prev-station" name="prev-station" required placeholder="Enter Previous Station"><br>
+            <label for="curr-location">Current Location:</label>
+            <input type="text" id="curr-location" name="curr-location" required placeholder="Enter Current Location"><br>
+            <label for="speed">Speed:</label>
+            <input type="text" id="speed" name="speed" required placeholder="Enter Speed Of the Train"><br>
+            <button type="submit">Add Train</button><br>
+            <button style="width: 50%;" type="button" onclick="scanQRCode()">Scan QR Code</button>
+        </form>
+    </div>
+        <h2>Train Information</h2>
+
+        <table id="train-table" style="display: none;">
+            <thead>
+                <tr style="color: black;">
+                    <th>Train ID</th>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Previous Station</th>
+                    <th>Current Location</th>
+                    <th>Speed</th>
+                </tr>
+            </thead>
+            <tbody id="train-data">
+                <!-- Data rows will be dynamically added here -->
+            </tbody>
+        </table>
+    <script>
+        const trains = [];
+
+        function populateTrainData() {
+            const tbody = document.getElementById('train-data');
+            tbody.innerHTML = '';
+            trains.forEach(train => {
+                const row = `<tr>
+                                <td>${train.id}</td>
+                                <td>${train.name}</td>
+                                <td>${train.destination}</td>
+                                <td>${train.prevStation}</td>
+                                <td>${train.currLocation}</td>
+                                <td>${train.speed}</td>
+                            </tr>`;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function updateTrainData() {
+            populateTrainData();
+            document.getElementById('train-table').style.display = 'block';
+        }
+
+        document.getElementById('add-train-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const trainName = document.getElementById('train-name').value;
+            const destination = document.getElementById('destination').value;
+            const prevStation = document.getElementById('prev-station').value;
+            const currLocation = document.getElementById('curr-location').value;
+            const speed = document.getElementById('speed').value;
+
+            const newTrain = {
+                id: trains.length + 1,
+                name: trainName,
+                destination: destination,
+                prevStation: prevStation,
+                currLocation: currLocation,
+                speed: speed
+            };
+            trains.push(newTrain);
+
+            populateTrainData();
+            document.getElementById('train-table').style.display = 'block';
+            document.getElementById('add-train-form').reset();
+        });
+    </script>
+
+</body>
+
+</html>
