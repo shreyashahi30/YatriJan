@@ -7,7 +7,7 @@ body {
   height: 150vh;
   display: flex;
   flex-direction: column;
-  overflow-x:hidden;
+  /*overflow-x:hidden;*/
 }
 main{
   display: flex;
@@ -29,6 +29,26 @@ main{
 }
 
 span.block-letters:hover {
+  color:rgba(144, 239, 254, 0.842); 
+}
+.food-container {
+  position: relative;
+}
+
+span.food-text {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px; /* Adjust font size as needed */
+  color: white; /* Change color as needed */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Add text shadow */
+  font-weight: bold;
+  z-index: 1;
+}
+
+
+span.food-text:hover {
   color:rgba(144, 239, 254, 0.842); 
 }
 nav {
@@ -303,7 +323,7 @@ table {
 }
 td {
     padding: 50px;
-    border: 5px solid rgb(11, 0, 4)
+    border: 8px solid rgb(11, 0, 4)
 }
 .item {
     display: flex;
