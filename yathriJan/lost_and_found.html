@@ -8,17 +8,15 @@
 </head>
 <body>
     <header>
-        <nav style="padding: 20px;">
+        <nav style="padding: 5px;width: 30%;margin-top: 40px;">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Search</a></li>
-            <li><a href="notification.html">Notifications</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#found-items-table">Found Items</a></li>
           </ul>
-          <button class="login-button">Profile</button>
         </nav>
       </header>
-    <h1>Report Lost Item</h1>
-    <h3>Select the category of your lost Item</h3>
+    <h1 style="text-align: center;">Report Lost Item</h1>
+    <h3 style="text-align: center;">Select the category of your lost Item</h3>
     <table>
         <tr>
             <th>Category</th>
@@ -27,40 +25,56 @@
         </tr>
         <tr>
             <td class="item">
-                <button onclick="showForm('personal')">Personal Item</button>
+                <button onclick="showForm('personal')" style="padding: 70px;">Personal Item</button>
             </td>
             <td>Description: Personal items such as keys, wallets, etc.</td>
             <td><img src="https://cdn.thewirecutter.com/wp-content/uploads/2019/11/Personal_Items_for_Travel-lowres-48.jpg?auto=webp&quality=75&width=1024" alt="Luggage" width="200px"></td>
         </tr>
         <tr>
             <td class="item">
-                <button onclick="showForm('clothing')">Clothing Or Accessories</button>
+                <section style="padding: 10px 20px;">
+                    <button onclick="showForm('clothing')">Clothing Or Accessories</button>
+                </section>
             </td>
             <td>Description: Clothing items or accessories such as jewelry, hats, etc.</td>
             <td><img src="https://promova.com/content/accessory_79573b939f.png" alt="Accessories" width="200px"></td>
         </tr>
         <tr>
             <td class="item">
-                <button onclick="showForm('electronic')">Electronic Devices</button>
+                <section style="padding: 10px 20px;">
+                    <button onclick="showForm('electronic')"style="padding: 110px;">Electronic Devices</button>
+                </section>
             </td>
             <td>Description: Electronic devices such as phones, laptops, etc.</td>
             <td><img src="https://7esl.com/wp-content/uploads/2020/12/electronic-devices.jpg" alt="Electronic Devices" width="100px"></td>
         </tr>
         <tr>
             <td class="item">
-                <button onclick="showForm('luggage')">Luggage</button>
+                <button style="padding: 20%;" onclick="showForm('luggage')">Luggage</button>
             </td>
             <td>Description: Bags, suitcases, or other luggage items.</td>
             <td><img src="https://assets.teenvogue.com/photos/643de77798e830c20d9cbd0e/16:9/w_2560%2Cc_limit/GettyImages-1370841285.jpg" alt="Luggage" width="200px"></td>
         </tr>
         <tr>
             <td class="item">
-                <button onclick="showForm('other')">Other</button>
+                <button onclick="showForm('other')"style="padding: 90px;">Other</button>
             </td>
             <td>Description: Items that do not fit into any other category.</td>
             <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGI0rbJJ2FtuFjCv8DAmP_U00BUVzva535-Q&usqp=CAU" alt="Other Items" width="200px"></td>
         </tr>
     </table>
+    <h2>Found Items</h2>
+    <table id="found-items-table">
+    <tr>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Date Found</th>
+        <th>Time Found</th>
+        <th>Station Found At</th>
+    </tr>
+    <!-- Include any found items here -->
+    </table>
+
     <div id="form-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px;">
         <h2>Report Details</h2>
         <form id="report-form">
@@ -92,7 +106,6 @@
             // Hide the form pop-up
             document.getElementById('form-popup').style.display = 'none';
         }
-
         document.getElementById('report-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const itemDescription = document.getElementById('item-description').value;
@@ -105,15 +118,55 @@
             const nextStation = document.getElementById('next-station').value;
             const beforeStation = document.getElementById('before-station').value;
             const reportDetails = `Report Details:
-                Item Description: ${itemDescription}
-                Date of Losing(DD/MM/YYYY): ${date}
-                Time of Losing in hours and minutes: ${hours}:${minutes}
-                Station Lost At: ${stationDescription}
-                Next Station: ${nextStation}
-                Before Station: ${beforeStation}`;
+            Item Description: ${itemDescription}
+            Date of Losing(DD/MM/YYYY): ${date}
+            Time of Losing in hours and minutes: ${hours}:${minutes}
+            Station Lost At: ${stationDescription}
+            Next Station: ${nextStation}
+            Before Station: ${beforeStation}`;
             alert(reportDetails);
             hideForm(); // Close the form pop-up after submitting
+            addFoundItemToTable(itemDescription, date, `${hours}:${minutes}`, stationDescription);
         });
-    </script>
+
+        function showFoundForm() {
+            document.getElementById('form-popup-found').style.display = 'block';
+        }
+        function hideFoundForm() {
+            document.getElementById('form-popup-found').style.display = 'none';
+        } 
+        document.getElementById('found-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const foundItemDescription = document.getElementById('found-item-description').value;
+            const foundDate = document.getElementById('found-date').value;
+            const foundTime = document.getElementById('found-time').value;
+            const foundTimeArray = foundTime.split(":"); // Split the time into hours and minutes
+            const foundHours = foundTimeArray[0];
+            const foundMinutes = foundTimeArray[1];
+            const foundStationDescription = document.getElementById('found-station-description').value;
+            const foundDetails = `Found Details:
+            Item Description: ${foundItemDescription}
+            Date Found(DD/MM/YYYY): ${foundDate}
+            Time Found in hours and minutes: ${foundHours}:${foundMinutes}
+            Station Found At: ${foundStationDescription}`;
+            alert(foundDetails);
+            hideFoundForm(); // Close the form pop-up after submitting
+        });
+        function addFoundItemToTable(itemDescription, foundDate, foundTime, foundStationDescription) {
+            const table = document.getElementById('found-items-table');
+            const row = table.insertRow(-1); // Insert a new row at the end of the table
+            const categoryCell = row.insertCell(0);
+            const descriptionCell = row.insertCell(1);
+            const dateCell = row.insertCell(2);
+            const timeCell = row.insertCell(3);
+            const stationCell = row.insertCell(4);
+
+            categoryCell.textContent = "Found";
+            descriptionCell.textContent = itemDescription;
+            dateCell.textContent = foundDate;
+            timeCell.textContent = foundTime;
+            stationCell.textContent = foundStationDescription;
+        }        
+</script>
 </body>
 </html>
