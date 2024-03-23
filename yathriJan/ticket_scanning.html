@@ -117,10 +117,9 @@
             <div id="qrScanner"></div>
             <button id="scanButton">Scan QR Code</button>
         </section>
-        
         <section id="ticketDetailsSection" style="display: none;">
             <h2>Enter Ticket Details</h2>
-            <form id="ticketForm">
+            <form action="process_ticket.php" method="post" id="ticketForm">
                 <label for="ticketNumber">Ticket Number:</label>
                 <input type="text" id="ticketNumber" name="ticketNumber" required>
                 <label for="seatNumber">Seat Number:</label>
