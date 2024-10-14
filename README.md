@@ -16,13 +16,12 @@ Here are some screenshots of the YatriJan application:
 
 | Feature                      | Screenshot                                       |
 |------------------------------|-------------------------------------------------|
-| Home Page                    | ![Home Page](screenshots/home_page.png)        |
-| User Management              | ![User Management](screenshots/user_management.png) |
+| Home Page                    | ![Home Page](screenshots/home_page.png)        | |
 | Ticket Scanning              | ![Ticket Scanning](screenshots/ticket_scanning.png) |
-| Food and Beverages           | ![Food and Beverages](screenshots/food_beverages.png) |
-| Cleanliness Reporting         | ![Cleanliness Reporting](screenshots/cleanliness_reporting.png) |
-| Train Tracking               | ![Train Tracking](screenshots/train_tracking.png) |
-| Lost and Found               | ![Lost and Found](screenshots/lost_and_found.png) |
+| Food and Beverages           | ![Food and Beverages](screenshots/food_and_beverages.png) |
+| Cleanliness Reporting        | ![Cleanliness Reporting](screenshots/cleanliness.png) |
+| Train Tracking/Scanning      | ![Train Tracking](screenshots/train_scanning.png) |
+| Co-Passenger                 | ![Lost and Found](screenshots/co_passenger.png) |
 
 > **Note**: Ensure that the screenshots are saved in the `screenshots` folder within your project directory.
 
