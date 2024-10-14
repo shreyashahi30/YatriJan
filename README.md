@@ -20,7 +20,7 @@ Here are some screenshots of the YatriJan application:
 | Ticket Scanning              | ![Ticket Scanning](screenshots/ticket_scanning.png) |
 | Food and Beverages           | ![Food and Beverages](screenshots/food_and_beverages.png) |
 | Cleanliness Reporting        | ![Cleanliness Reporting](screenshots/cleanliness.png) |
-| Train Tracking/Scanning      | ![Train Tracking](screenshots/train_scanning.png) |
+| Train Tracking/Scanning      | ![Train Tracking](screenshots/ticket_scanning.png) |
 | Co-Passenger                 | ![Lost and Found](screenshots/co_passenger.png) |
 
 > **Note**: Ensure that the screenshots are saved in the `screenshots` folder within your project directory.
